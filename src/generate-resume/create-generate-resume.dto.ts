@@ -1,0 +1,40 @@
+// src/generate-resume/dto/create-generate-resume.dto.ts
+export class CreateGenerateResumeDto {
+  jobTitle: string;
+  email: string;
+  templateId: number;
+  profileImageUrl?: string;
+  backgroundImageUrl?: string;
+  phone: string;
+  location: string;
+  profileSummary: string;
+  skillOne: string;
+  skillThree: string;
+  skillTwo: string;
+  skillFour: string;
+  languageTwo: string;
+  languageFour: string;
+  skillFive: string;
+  languageThree: string;
+  lastName: string;
+  languageFive: string;
+  firstCompanyName: string;
+  firstName: string;
+  firstCompanyLocation: string;
+  firstCompanyDescriptionOne: string;
+  firstCompanyDescriptionTwo: string;
+  secondCompanyName: string;
+  secondCompanyRole: string;
+  secondCompanyLocation: string;
+  secondCompanyDescriptionOne: string;
+  firstFieldOfStudy: string;
+  secondCompanyDescriptionTwo: string;
+  firstFieldOfStudyGrade: string;
+  secondFieldOfStudyGrade: string;
+  secondFieldOfStudy: string;
+  firstFieldOfStudyLocation: string;
+  thirdFieldOfStudy: string;
+  secondFieldOfStudyLocation: string;
+  thirdFieldOfStudyLocation: string;
+  thirdFieldOfStudyGrade: string;
+}

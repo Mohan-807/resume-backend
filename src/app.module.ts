@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { ResumeModule } from './resume/resume.module';
+import { GenerateResumeModule } from './generate-resume/generate-resume.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { ResumeModule } from './resume/resume.module';
       synchronize: true, // Set to false in production to avoid data loss
     }),
     ResumeModule,
+    GenerateResumeModule,
   ],
 })
 export class AppModule { }
