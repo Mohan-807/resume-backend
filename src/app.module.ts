@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { ResumeModule } from './resume/resume.module';
 import { GenerateResumeModule } from './generate-resume/generate-resume.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { GenerateResumeModule } from './generate-resume/generate-resume.module';
     }),
     ResumeModule,
     GenerateResumeModule,
+    AuthModule,
   ],
 })
 export class AppModule { }
