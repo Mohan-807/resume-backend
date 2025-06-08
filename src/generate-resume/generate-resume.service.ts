@@ -23,6 +23,9 @@ export class GenerateResumeService {
       ? `<img src="${dto.profileImageUrl}" style="width:100%;height:100%;object-fit:cover;" />`
       : '';
 
+    const renderSkill = (skill?: string) =>
+      skill ? `<li class="l-list-style"><span class="l-list-sub">✔</span> ${skill}</li>` : '';
+
     html = html
       .replace(/\$\{jobTitle}/g, dto.jobTitle || '')
       .replace(/\$\{email}/g, dto.email || '')
@@ -31,11 +34,15 @@ export class GenerateResumeService {
       .replace(/\$\{phone}/g, dto.phone || '')
       .replace(/\$\{location}/g, dto.location || '')
       .replace(/\$\{profileSummary}/g, dto.profileSummary || '')
-        .replace(/\$\{skillOne}/g, dto.skillOne || '')
-        .replace(/\$\{skillTwo}/g, dto.skillTwo || '')
-        .replace(/\$\{skillThree}/g, dto.skillThree || '')
-      .replace(/\$\{skillFour}/g, dto.skillFour || '')
-      .replace(/\$\{skillFive}/g, dto.skillFive || '')
+      .replace(/\$\{skillList}/g,
+        [
+          renderSkill(dto.skillOne),
+          renderSkill(dto.skillTwo),
+          renderSkill(dto.skillThree),
+          renderSkill(dto.skillFour),
+          renderSkill(dto.skillFive),
+        ].join('')
+      )
       .replace(/\$\{languageOne}/g, dto.languageTwo || '')
       .replace(/\$\{languageTwo}/g, dto.languageTwo || '')
       .replace(/\$\{languageThree}/g, dto.languageThree || '')
