@@ -53,6 +53,7 @@ export class GenerateResumeController {
       skillThree: body.skillThree,
       skillTwo: body.skillTwo,
       skillFour: body.skillFour,
+      languageOne: body.languageOne,
       languageTwo: body.languageTwo,
       languageFour: body.languageFour,
       skillFive: body.skillFive,
