@@ -12,6 +12,7 @@ export class CreateGenerateResumeDto {
   skillThree: string;
   skillTwo: string;
   skillFour: string;
+  languageOne: string;
   languageTwo: string;
   languageFour: string;
   skillFive: string;

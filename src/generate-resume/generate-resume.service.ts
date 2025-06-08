@@ -23,8 +23,46 @@ export class GenerateResumeService {
       ? `<img src="${dto.profileImageUrl}" style="width:100%;height:100%;object-fit:cover;" />`
       : '';
 
-    const renderSkill = (skill?: string) =>
-      skill ? `<li class="l-list-style"><span class="l-list-sub">✔</span> ${skill}</li>` : '';
+    const renderTickItem = (text?: string) =>
+      text ? `<li class="l-list-style"><span class="l-list-sub">✔</span> ${text}</li>` : '';
+
+    const renderBulletItem = (text?: string) =>
+      text
+        ? `<li style="position: relative; padding-left: 16px; margin-bottom: 6px; text-align: justify;">
+         <span style="position: absolute; left: 0; font-weight: normal;">•</span>
+         ${text}
+       </li>`
+        : '';
+
+    // Skills (if needed similarly)
+    const skillList = [
+      renderTickItem(dto.skillOne),
+      renderTickItem(dto.skillTwo),
+      renderTickItem(dto.skillThree),
+      renderTickItem(dto.skillFour),
+      renderTickItem(dto.skillFive),
+    ].join('');
+
+    // Languages
+    const languageList = [
+      renderTickItem(dto.languageOne),
+      renderTickItem(dto.languageTwo),
+      renderTickItem(dto.languageThree),
+      renderTickItem(dto.languageFour),
+      renderTickItem(dto.languageFive),
+    ].join('');
+
+    // Company Descriptions
+    const firstCompanyDescriptionList = [
+      renderBulletItem(dto.firstCompanyDescriptionOne),
+      renderBulletItem(dto.firstCompanyDescriptionTwo),
+    ].join('');
+
+    const secondCompanyDescriptionList = [
+      renderBulletItem(dto.secondCompanyDescriptionOne),
+      renderBulletItem(dto.secondCompanyDescriptionTwo),
+    ].join('');
+
 
     html = html
       .replace(/\$\{jobTitle}/g, dto.jobTitle || '')
@@ -34,32 +72,18 @@ export class GenerateResumeService {
       .replace(/\$\{phone}/g, dto.phone || '')
       .replace(/\$\{location}/g, dto.location || '')
       .replace(/\$\{profileSummary}/g, dto.profileSummary || '')
-      .replace(/\$\{skillList}/g,
-        [
-          renderSkill(dto.skillOne),
-          renderSkill(dto.skillTwo),
-          renderSkill(dto.skillThree),
-          renderSkill(dto.skillFour),
-          renderSkill(dto.skillFive),
-        ].join('')
-      )
-      .replace(/\$\{languageOne}/g, dto.languageTwo || '')
-      .replace(/\$\{languageTwo}/g, dto.languageTwo || '')
-      .replace(/\$\{languageThree}/g, dto.languageThree || '')
-      .replace(/\$\{languageFour}/g, dto.languageFour || '')
-      .replace(/\$\{languageFive}/g, dto.languageFive || '')
+      .replace(/\$\{skillList}/g, skillList)
+      .replace(/\$\{languageList}/g, languageList)
+      .replace(/\$\{firstCompanyDescriptionList}/g, firstCompanyDescriptionList)
+      .replace(/\$\{secondCompanyDescriptionList}/g, secondCompanyDescriptionList)
       .replace(/\$\{lastName}/g, dto.lastName || '')
       .replace(/\$\{firstName}/g, dto.firstName || '')
       .replace(/\$\{firstCompanyName}/g, dto.firstCompanyName || '')
       .replace(/\$\{firstCompanyRole}/g, dto.firstCompanyName || '')
       .replace(/\$\{firstCompanyLocation}/g, dto.firstCompanyLocation || '')
-      .replace(/\$\{firstCompanyDescriptionOne}/g, dto.firstCompanyDescriptionOne || '')
-      .replace(/\$\{firstCompanyDescriptionTwo}/g, dto.firstCompanyDescriptionTwo || '')
       .replace(/\$\{secondCompanyName}/g, dto.secondCompanyName || '')
       .replace(/\$\{secondCompanyRole}/g, dto.secondCompanyRole || '')
       .replace(/\$\{secondCompanyLocation}/g, dto.secondCompanyLocation || '')
-      .replace(/\$\{secondCompanyDescriptionOne}/g, dto.secondCompanyDescriptionOne || '')
-      .replace(/\$\{secondCompanyDescriptionTwo}/g, dto.secondCompanyDescriptionTwo || '')
       .replace(/\$\{firstFieldOfStudy}/g, dto.firstFieldOfStudy || '')
       .replace(/\$\{firstFieldOfStudyGrade}/g, dto.firstFieldOfStudyGrade || '')
       .replace(/\$\{firstFieldOfStudyLocation}/g, dto.firstFieldOfStudyLocation || '')
